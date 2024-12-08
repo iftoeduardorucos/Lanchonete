@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lanchonete Delícia</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Lanchonete Delícia</h1>
+        <p>Sua fome é nossa prioridade! Explore nossos deliciosos lanches.</p>
+    </header>
+
+    <nav>
+        <a href="#menu">Menu</a>
+        <a href="#contato">Contato</a>
+    </nav>
+
+    <main>
+        <section id="menu">
+            <h2>Nosso Cardápio</h2>
+            <article class="lanche">
+                <img src="burger.jpg" alt="Hambúrguer">
+                <h3>Hambúrguer</h3>
+                <p>Delicioso hambúrguer com carne suculenta, queijo e salada.</p>
+                <p>Preço: R$ 15,00</p>
+                <button onclick="fazerPedido('Hambúrguer', 15)">Fazer Pedido</button>
+            </article>
+            <article class="lanche">
+                <img src="pizza.jpg" alt="Pizza">
+                <h3>Pizza</h3>
+                <p>Fatia de pizza com queijo e pepperoni.</p>
+                <p>Preço: R$ 10,00</p>
+                <button onclick="fazerPedido('Pizza', 10)">Fazer Pedido</button>
+            </article>
+            <!-- Adicione mais itens aqui -->
+        </section>
+    </main>
+
+    <footer id="contato">
+        <p>Contato: (11) 1234-5678</p>
+        <p>Endereço: Rua dos Lanches, 123</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
