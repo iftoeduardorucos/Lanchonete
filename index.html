@@ -3,46 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lanchonete Delícia</title>
+    <title>Lanches Kiu-Rangrí</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>Lanchonete Delícia</h1>
-        <p>Sua fome é nossa prioridade! Explore nossos deliciosos lanches.</p>
+    <header class="header-logo">
+        <img src="logo.png" alt="Logo Kiu-Ranguí" style="max-width: 200px; height: auto; margin-bottom: 15px;">
+        <h1>Lanchonete Kiu-Rangrí</h1>
+        <p>Aqui matamos sua fome.</p>
     </header>
-
+    
     <nav>
         <a href="#menu">Menu</a>
         <a href="#contato">Contato</a>
+        <!-- Novo botão do carrinho -->
+        <a href="#" onclick="abrirCarrinho()">🛒 Carrinho (<span id="qtdItensCarrinho">0</span>)</a>
     </nav>
-
     <main>
-        <section id="menu">
-            <h2>Nosso Cardápio</h2>
-            <article class="lanche">
-                <img src="burger.jpg" alt="Hambúrguer">
-                <h3>Hambúrguer</h3>
-                <p>Delicioso hambúrguer com carne suculenta, queijo e salada.</p>
-                <p>Preço: R$ 15,00</p>
-                <button onclick="fazerPedido('Hambúrguer', 15)">Fazer Pedido</button>
-            </article>
-            <article class="lanche">
-                <img src="pizza.jpg" alt="Pizza">
-                <h3>Pizza</h3>
-                <p>Fatia de pizza com queijo e pepperoni.</p>
-                <p>Preço: R$ 10,00</p>
-                <button onclick="fazerPedido('Pizza', 10)">Fazer Pedido</button>
-            </article>
-            <!-- Adicione mais itens aqui -->
+        <section id="menu" style="display: flex; flex-direction: column; gap: 20px;">
+            <!-- Linha de Hambúrgueres -->
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <article class="lanche" style="height: 400px; display: flex; flex-direction: column; width: 250px; padding: 15px; box-sizing: border-box;">
+                    <img src="hamburguer-simples.jpg" alt="Hambúrguer Simples" style="width: 200px; height: 150px; object-fit: cover; margin: 0 auto;">
+                    <h3 style="text-align: center; margin: 10px 0;">Hambúrguer Simples</h3>
+                    <p style="flex-grow: 1; text-align: center; margin: 0 0 10px 0;">Hambúrguer com carne, queijo, alface e tomate.</p>
+                    <p style="text-align: center; margin: 0 0 10px 0;">Preço: R$ 10,00</p>
+                    <button onclick="fazerPedido('Hambúrguer Simples', 10)" style="width: 150px; margin: 0 auto;">Fazer Pedido</button>
+                </article>
+    
+                <article class="lanche" style="height: 400px; display: flex; flex-direction: column; width: 250px; padding: 15px; box-sizing: border-box;">
+                    <img src="hamburguer-duplo.jpg" alt="Hambúrguer Duplo" style="width: 200px; height: 150px; object-fit: cover; margin: 0 auto;">
+                    <h3 style="text-align: center; margin: 10px 0;">Hambúrguer Duplo</h3>
+                    <p style="flex-grow: 1; text-align: center; margin: 0 0 10px 0;">Hambúrguer com duas carnes, queijo duplo, bacon, alface e tomate.</p>
+                    <p style="text-align: center; margin: 0 0 10px 0;">Preço: R$ 15,00</p>
+                    <button onclick="fazerPedido('Hambúrguer Duplo', 15)" style="width: 150px; margin: 0 auto;">Fazer Pedido</button>
+                </article>
+    
+                <article class="lanche" style="height: 400px; display: flex; flex-direction: column; width: 250px; padding: 15px; box-sizing: border-box;">
+                    <img src="hamburguer-torre.jpg" alt="Hambúrguer Torre" style="width: 200px; height: 150px; object-fit: cover; margin: 0 auto;">
+                    <h3 style="text-align: center; margin: 10px 0;">Hambúrguer Torre</h3>
+                    <p style="flex-grow: 1; text-align: center; margin: 0 0 10px 0;">Hambúrguer tão grande que não cabe na foto, com diversas carnes, queijo cheddar, bacon, cebola caramelizada e molho especial.</p>
+                    <p style="text-align: center; margin: 0 0 10px 0;">Preço: R$ 25,00</p>
+                    <button onclick="fazerPedido('Hambúrguer Torre', 25)" style="width: 150px; margin: 0 auto;">Fazer Pedido</button>
+                </article>
+            </div>
+    
+            <!-- Linha de Batatas -->
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <article class="lanche" style="height: 400px; display: flex; flex-direction: column; width: 250px; padding: 15px; box-sizing: border-box;">
+                    <img src="batata-grande.jpg" alt="Batata Grande" style="width: 200px; height: 150px; object-fit: cover; margin: 0 auto;">
+                    <h3 style="text-align: center; margin: 10px 0;">Batata Grande</h3>
+                    <p style="flex-grow: 1; text-align: center; margin: 0 0 10px 0;">Porção de batata frita grande.</p>
+                    <p style="text-align: center; margin: 0 0 10px 0;">Preço: R$ 8,00</p>
+                    <button onclick="fazerPedido('Batata Grande', 8)" style="width: 150px; margin: 0 auto;">Fazer Pedido</button>
+                </article>
+    
+                <article class="lanche" style="height: 400px; display: flex; flex-direction: column; width: 250px; padding: 15px; box-sizing: border-box;">
+                    <img src="batata-gigante.png" alt="Batata Gigante" style="width: 200px; height: 150px; object-fit: cover; margin: 0 auto;">
+                    <h3 style="text-align: center; margin: 10px 0;">Batata Gigante</h3>
+                    <p style="flex-grow: 1; text-align: center; margin: 0 0 10px 0;">Porção de batata frita gigante.</p>
+                    <p style="text-align: center; margin: 0 0 10px 0;">Preço: R$ 12,00</p>
+                    <button onclick="fazerPedido('Batata Gigante', 12)" style="width: 150px; margin: 0 auto;">Fazer Pedido</button>
+                </article>
+            </div>
+    
+            
+            <div style="display: flex; justify-content: center; gap: 20px;">
+                <article class="lanche" style="height: 400px; display: flex; flex-direction: column; width: 250px; padding: 15px; box-sizing: border-box;">
+                    <img src="refrigerante-lata.jpg" alt="Refrigerante Lata 350ml" style="width: 200px; height: 150px; object-fit: cover; margin: 0 auto;">
+                    <h3 style="text-align: center; margin: 10px 0;">Refrigerante Lata 350ml</h3>
+                    <p style="flex-grow: 1; text-align: center; margin: 0 0 10px 0;">Refrigerante em lata de 350ml.</p>
+                    <p style="text-align: center; margin: 0 0 10px 0;">Preço: R$ 5,00</p>
+                    <button onclick="fazerPedido('Refrigerante Lata 350ml', 5)" style="width: 150px; margin: 0 auto;">Fazer Pedido</button>
+                </article>
+    
+                <article class="lanche" style="height: 400px; display: flex; flex-direction: column; width: 250px; padding: 15px; box-sizing: border-box;">
+                    <img src="refrigerante-600ml.jpg" alt="Refrigerante 600ml" style="width: 200px; height: 150px; object-fit: cover; margin: 0 auto;">
+                    <h3 style="text-align: center; margin: 10px 0;">Refrigerante 600ml</h3>
+                    <p style="flex-grow: 1; text-align: center; margin: 0 0 10px 0;">Refrigerante em garrafa de 600ml.</p>
+                    <p style="text-align: center; margin: 0 0 10px 0;">Preço: R$ 7,00</p>
+                    <button onclick="fazerPedido('Refrigerante 600ml', 7)" style="width: 150px; margin: 0 auto;">Fazer Pedido</button>
+                </article>
+    
+                <article class="lanche" style="height: 400px; display: flex; flex-direction: column; width: 250px; padding: 15px; box-sizing: border-box;">
+                    <img src="refrigerante-2l.jpg" alt="Refrigerante 2L" style="width: 200px; height: 150px; object-fit: cover; margin: 0 auto;">
+                    <h3 style="text-align: center; margin: 10px 0;">Refrigerante 2L</h3>
+                    <p style="flex-grow: 1; text-align: center; margin: 0 0 10px 0;">Refrigerante em garrafa de 2 litros.</p>
+                    <p style="text-align: center; margin: 0 0 10px 0;">Preço: R$ 10,00</p>
+                    <button onclick="fazerPedido('Refrigerante 2L', 10)" style="width: 150px; margin: 0 auto;">Fazer Pedido</button>
+                </article>
+            </div>
         </section>
     </main>
 
     <footer id="contato">
-        <p>Contato: (11) 1234-5678</p>
-        <p>Endereço: Rua dos Lanches, 123</p>
+        <p>Endereço: 101 Sul Avenida JK</p>
+        <p>Palmas-TO</p>
+        <p>Contato: (63) 99999-9999</p>
     </footer>
 
+    
+<div id="carrinhoModal" style="display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5);">
+    <div style="background-color: white; padding: 20px; width: 80%; max-width: 600px; margin: 50px auto; border-radius: 10px;">
+        <h2 style="text-align: center; margin-bottom: 20px;">Seu Carrinho</h2>
+        <div id="itensCarrinho" style="max-height: 300px; overflow-y: auto;"></div>
+        <div style="margin-top: 20px; padding-top: 10px; border-top: 1px solid #ccc;">
+            <p style="color: green; font-weight: bold; text-align: center;">✅ Frete Grátis</p>
+            <p style="text-align: right; font-size: 1.2em; font-weight: bold;">Total: R$ <span id="totalCarrinho">0.00</span></p>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <button onclick="finalizarPedido()" style="background-color: #4CAF50; color: white; padding: 10px 20px; border: none; border-radius: 5px; margin-right: 10px; cursor: pointer;">Finalizar Pedido</button>
+            <button onclick="fecharCarrinho()" style="background-color: #f44336; color: white; padding: 10px 20px; border: none; border-radius: 5px; cursor: pointer;">Fechar</button>
+        </div>
+    </div>
+</div>
+
     <script src="script.js"></script>
+
 </body>
 </html>
